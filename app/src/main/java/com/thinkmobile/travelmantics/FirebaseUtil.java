@@ -24,12 +24,12 @@ public class FirebaseUtil {
     public static DatabaseReference mDatabaseReference;
     private static FirebaseUtil firebaseUtil;
     public static FirebaseAuth mFirebaseAuth;
-    public static FirebaseAuth.AuthStateListener mAuthListener;
     public static FirebaseStorage mStorage;
     public static StorageReference mStorageRef;
+    public static FirebaseAuth.AuthStateListener mAuthListener;
     public static ArrayList<TravelDeal> mDeals;
-    private static ListActivity caller;
     private static final int RC_SIGN_IN = 123;
+    private static ListActivity caller;
     private FirebaseUtil(){};
     public static boolean isAdmin;
 
@@ -63,16 +63,17 @@ public class FirebaseUtil {
     }
 
     private static void signIn() {
+        // Choose authentication providers
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 new AuthUI.IdpConfig.EmailBuilder().build(),
                 new AuthUI.IdpConfig.GoogleBuilder().build());
 
-
-        // Create and launch sign-in intent
+// Create and launch sign-in intent
         caller.startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
                         .setAvailableProviders(providers)
+                        .setIsSmartLockEnabled(false)
                         .build(),
                 RC_SIGN_IN);
     }

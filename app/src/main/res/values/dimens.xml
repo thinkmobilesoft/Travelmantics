@@ -2,6 +2,6 @@
 <resources>
     <dimen name="text_standard_margin">16dp</dimen>
     <dimen name="text_margin_top">24dp</dimen>
-    <dimen name="title_large">24sp</dimen>
+    <dimen name="title_large">22sp</dimen>
     <dimen name="text_price">18sp</dimen>
 </resources>

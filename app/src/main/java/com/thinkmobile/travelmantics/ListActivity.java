@@ -18,16 +18,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 public class ListActivity extends AppCompatActivity {
-
     /*ArrayList<TravelDeal> deals;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
     private ChildEventListener mChildListener;*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
     }
 
     @Override
@@ -49,7 +48,7 @@ public class ListActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.insert_menu:
                 Intent intent = new Intent(this, DealActivity.class);
                 startActivity(intent);
@@ -82,8 +81,8 @@ public class ListActivity extends AppCompatActivity {
         RecyclerView rvDeals = (RecyclerView) findViewById(R.id.rvDeals);
         final DealAdapter adapter = new DealAdapter();
         rvDeals.setAdapter(adapter);
-        @SuppressLint("WrongConstant") LinearLayoutManager dealsLayoutManager =
-                new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager dealsLayoutManager =
+                new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         rvDeals.setLayoutManager(dealsLayoutManager);
         FirebaseUtil.attachListener();
     }
@@ -91,5 +90,4 @@ public class ListActivity extends AppCompatActivity {
     public void showMenu() {
         invalidateOptionsMenu();
     }
-
 }
